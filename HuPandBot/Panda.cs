@@ -17,6 +17,8 @@ namespace HuPandBot
         {
             Name = name;
             Birthday = DateTime.Now;
+            IsAsleep = false;
+
         }
 
         public void WakeUp()

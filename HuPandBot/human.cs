@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HuPandBot
 {
-    class Human 
+    class Human
     {
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
@@ -17,6 +17,8 @@ namespace HuPandBot
         {
             Name = name;
             Birthday = DateTime.Now;
+            IsAsleep = false;
+
         }
 
         public void WakeUp()
@@ -31,7 +33,7 @@ namespace HuPandBot
 
         public void Eat(string food)
         {
-            Console.WriteLine($"{this} human is eating {food}");
+            Console.WriteLine($"{this} human is eating {food}. Yum!");
         }
 
         public void SayHello()
@@ -39,10 +41,16 @@ namespace HuPandBot
             Console.WriteLine($"{this} human says: Hey there!");
         }
 
-        public void AdoptPet (IPet pet)
+        public void AdoptPet(IPet pet)
         {
             pet.OwnersName = this.Name;
             this.PetList.Add(pet);
         }
+
+        public override string ToString()
+        {
+            return $"Human: {Name} {Birthday} {IsAsleep}";
+        }
     }
 }
+
